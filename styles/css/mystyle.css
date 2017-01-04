@@ -1,0 +1,24 @@
+/*!
+ * Ma feuille de style personnelle)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+h1-name {
+	font-size:23px;
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+	font-weight: 400;
+	line-height: 1.0;
+	color: hsla(220,100%,33%,1.00)
+	}
+h3-m {
+	font-family: inherit;
+	font-size:18px;
+	font-weight:500;
+	line-height: 1;
+	color:hsla(0,0%,0%,1.00);
+}
+p-m {
+	font-size: 20px;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1;
+}
