@@ -126,8 +126,9 @@ if (utilisateur_est_connecte()) {
 				
 				// On vérifie que l'erreur concerne bien un doublon
 				if (23000 == $erreur[0]) { // Le code d'erreur 23000 siginife "doublon" dans le standard ANSI SQL
-				
-					preg_match("`Duplicate entry '(.+)' for key \d+`is", $erreur[2], $valeur_probleme);
+					
+					$erreur[2] = "Duplicate entry 'Bonjour' for key 'telephone'";
+					preg_match("`^Duplicate entry '(.+)' for key (.+)$`Usi", $erreur[2], $valeur_probleme);
 					$valeur_probleme = $valeur_probleme[1];
 					
 					if ($telephone == $valeur_probleme) {
@@ -149,10 +150,10 @@ if (utilisateur_est_connecte()) {
 				}
 				
 				// On reaffiche le formulaire d'inscription
-				include CHEMIN_VUE.'formulaire_inscription.php';
+				include CHEMIN_VUE.'controle_inscription.php';
 			}
 
-	
+
 		} else {
 	
 			// On affiche à nouveau le formulaire d'inscription
