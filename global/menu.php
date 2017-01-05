@@ -12,6 +12,7 @@
 										<?php } else { ?>
 											<ul id="hornavmenu1" class="nav navbar-nav">
 												<li><a href="index.php" class="fa-home">Accueil</a></li>
+												<li><a href="index.php?module=membres&amp;action=vues/profil_infos_utilisateur">Profil</a></li>
 												<li><a href="index.php?module=membres&amp;action=deconnexion">Deconnexion</a></li>
 											</ul>
 										<?php } ?>
