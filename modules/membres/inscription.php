@@ -81,8 +81,48 @@ if (utilisateur_est_connecte()) {
 				// On transforme la chaine en entier
 				$id_utilisateur = (int) $id_utilisateur;
 				
-				// Preparation du mail
-				$message_mail = '<html><head></head><body>
+				//DEBUT ELIANE PHPMAIL
+				require MAIL.'PHPMailerAutoload.php';
+
+				$mail = new PHPMailer;
+
+				//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+				$mail->isSMTP();                                      // Set mailer to use SMTP
+				$mail->Host = 'localhost';  // Specify main and backup SMTP servers
+				$mail->SMTPAuth = false;                               // Enable SMTP authentication
+				$mail->Username = 'user@example.com';                 // SMTP username
+				$mail->Password = 'secret';                           // SMTP password
+				$mail->SMTPSecure = false;                            // Enable TLS encryption, `ssl` also accepted
+				$mail->Port = 25;                                    // TCP port to connect to
+
+
+				$mail->setFrom('birbaeliane@yahoo.fr', 'Mailer');
+				$mail->addAddress($form_inscription->get_cleaned_data('adresse_email'));     // Add a recipient
+				
+
+				$mail->isHTML(true);                                  // Set email format to HTML
+
+				$mail->Subject = 'MIME-Version: 1.0'                           ."\r\n";
+				$mail->Subject .= 'Content-type: text/html; charset=utf-8'      ."\r\n";
+				$mail->Subject .= 'From: "Mon site" <millenniumdesignbf@gmail.com>'      ."\r\n";
+				$mail->Body    = '<html><head></head><body>
+				<p>Merci de vous être inscrit sur "mon site" !</p>
+				<p>Veuillez cliquer sur <a href="'.$_SERVER['PHP_SELF'].'?module=membres&amp;action=valider_compte&amp;hash='.$hash_validation.'">ce lien</a> pour activer votre compte !</p>
+				</body></html>';
+				//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+				if(!$mail->send()) {
+    				echo 'Message could not be sent.';
+    				echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+    				echo 'Message has been sent';
+				}
+				//fin de Eliane mail envoie avec PHPMAIL
+
+
+				//Ca c est le code du Mr avant
+				/*$message_mail = '<html><head></head><body>
 				<p>Merci de vous être inscrit sur "mon site" !</p>
 				<p>Veuillez cliquer sur <a href="'.$_SERVER['PHP_SELF'].'?module=membres&amp;action=valider_compte&amp;hash='.$hash_validation.'">ce lien</a> pour activer votre compte !</p>
 				</body></html>';
@@ -93,7 +133,9 @@ if (utilisateur_est_connecte()) {
 				
 				// Envoi du mail
 				mail($form_inscription->get_cleaned_data('adresse_email'), 'Inscription sur <monsite.com>', $message_mail, $headers_mail);
-				
+
+				*/
+				//fin du code du mr pour envoie du mail
 				// Redimensionnement et sauvegarde de l'avatar (eventuel) dans le bon dossier
 				if (!empty($avatar)) {
 			

@@ -3,7 +3,7 @@
 // Pas de vérification de droits d'accès nécessaire : tout le monde peut voir un profil utilisateur :)
 
 // Si le paramètre id est manquant ou invalide
-if (empty($_GET['id']) or !is_numeric($_GET['id'])) {
+if (empty($_SESSION['id']) or !is_numeric($_SESSION['id'])) {
 
 	include CHEMIN_VUE.'erreur_parametre_profil.php';
 
@@ -13,7 +13,7 @@ if (empty($_GET['id']) or !is_numeric($_GET['id'])) {
 	include CHEMIN_MODELE.'membres.php';
 	
 	// lire_infos_utilisateur() est défini dans ~/modules/membres.php
-	$infos_utilisateur = lire_infos_utilisateur($_GET['id']);
+	$infos_utilisateur = lire_infos_utilisateur($_SESSION['id']);
 	
 	// Si le profil existe et que le compte est validé
 	if (false !== $infos_utilisateur && $infos_utilisateur['hash_validation'] == '') {
