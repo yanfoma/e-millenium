@@ -1046,6 +1046,7 @@ class Form_Checkbox extends Form_Input {
 
 		parent::__construct($name, $form);
 		$this->attrs['type'] = 'checkbox';
+		$this->required=false;
 	}
 
 	protected function _init() {
