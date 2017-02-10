@@ -43,8 +43,8 @@ function combinaison_connexion_valide($telephone, $mot_de_passe) {
 	$requete = $pdo->prepare("SELECT id FROM membres
 		WHERE
 		user_phone = :telephone AND 
-		mot_de_passe = :mot_de_passe AND
-		hash_validation = ''");
+		mot_de_passe = :mot_de_passe  AND
+		hash_validation = ''");//after the user click on the link he receive after inscription the hash_validation column must be empty;
 
 	$requete->bindValue(':telephone', $telephone);
 	$requete->bindValue(':mot_de_passe', $mot_de_passe);
