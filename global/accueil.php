@@ -56,9 +56,10 @@
                                         <button type="button" class="btn btn-lg btn-red">Plus de Details</button>
                                     </p>
                                 </div>
-                                <!--- LOGIN PAGE ----->
+                                <!--- LOGIN PAGE -->
                                 <div class="col-md-6 paagla">
-                                        <form class="login-page">
+
+                                        <form class="login-page" method="POST" action="index.php?module=membres&amp;action=connexion">
                                             <div class="login-header margin-bottom-30">
                                                 <h2 class="text-center">Connectez-vous</h2>
                                             </div>
@@ -66,21 +67,21 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-user"></i>
                                                 </span>
-                                                <input placeholder="No Telephone" class="form-control" type="tel">
+                                                <input placeholder="No Telephone" class="form-control" type="tel" name="telephone">
                                             </div>
                                             <div class="input-group margin-bottom-20">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-lock"></i>
                                                 </span>
-                                                <input placeholder="Mot de passe" class="form-control" type="password">
+                                                <input placeholder="Mot de passe" class="form-control" type="password" name="mot_de_passe">
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label class="checkbox">
-                                                        <input type="checkbox">Rester connecte</label>
+                                                        <input type="checkbox" name="connexion_auto">Rester connecte</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button class="btn btn-danger pull-right" type="submit">Connexion</button>
+                                                    <button class="btn btn-danger pull-right" type="submit" name="submitAcceuil" >Connexion</button>
                                                 </div>
                                             </div>
                                             <hr>
@@ -93,7 +94,7 @@
                                                 	<h3>Pas encore inscrit ?</h3>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="inscription.php"><button class="btn btn-success" type="button">S'inscrire</button></a>
+                                                    <a href="index.php?module=membres&amp;action=inscription"><button class="btn btn-success" type="button">S'inscrire</button></a>
                                                 </div>
                                             </div>
 
